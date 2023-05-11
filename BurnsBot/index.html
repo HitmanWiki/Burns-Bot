@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <title>Mr. BURNS-BOT</title>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <audio id="music" src="BURNS nusic clip final.mp4" autoplay loop onplaying="" style="display: none;"></audio>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate.css">
+    <meta property="title" content="Mr. BURNS-BOT">
+    <meta property="site_name" content="Mr. BURNS-BOT">
+    <meta property="url" content="https://shkreliinuofficial.com">
+    <link rel="icon" type="image/x-icon" href="fav.ico">
+</head>
+
+<body>
+    <div class="beforebg" id="beforebg"></div>
+    <video muted="" loop="" id="myVideo" preload="auto" width="100%">
+        <source src="BURNS nusic clip final.mp4" type="video/webm">
+    </video>
+
+    <a href="javascript:void(0);" onclick="toggleMute()">mute/unmute</a>
+
+    <div id="main" class="center">
+        <div id="overlay" onclick="music.play(); music.volume = 0.1; addStuff();"><span class="header center" id="status_text"></span></div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p><b>🔥🔥  Welcome to Mr. Burns Bot 🔥 🔥</b></p><br>
+            <p>🔥🔥 Bringing a Whole New Meaning to HYPER Deflationary Tokens.</p><br>
+            <p>🔥🔥 Unique Tokenomics Bring Value to Its Investors with LP token Continously Burning at Regular Intervals
+           </p><br>
+            <p>🔥🔥 Instead of a buy bot, we have introduced a burn bot Mr.BURNS-BOT, that will show how many tokens are burned with every transaction as they happen one by one. Think about how this could keep strong engagement, and build communities in this space</p><br>
+            <center><img src="logo.png" height="200" width="250"></img>
+            </center><br>
+            <p>Auto Burn with Zero Tax.</p><br>
+            <p>Auto liquidity burn is a feature in our contract that automatically burns a portion of the liquidity token in every 3600 seconds.</p><br>
+            <p>This helps to reduce the supply of the token over time and increase its value. The function works by taking a fraction of lp tokens and and sending it to the burn address.></p><br>
+            <p>The difference between this feature and the regular burn contract is that, normal burn system takes a portion of transaction taxes and send them to burn address, ours takes a fraction of accumulated liquidity tokens and send to burn address, making it possible to burn at 0% tax.</p><br>
+            <p>The total supply of Mr. Burns Bot is 1,000,000,000 (that's 9 zeroes).</p><br>
+            <p>Since the initial supply of $BURNS is limited the floor price will continue to rise as more and more BURNS tokens are removed from circulation.</p>
+        </div>
+    </div>
+
+
+    <script src="javascript.js"></script>
+
+    <script>
+        var temp = 0
+
+        function animationOver() {
+            temp++;
+
+            if (temp != 2)
+                return;
+
+            setTimeout(function() {
+                console.log("animations over");
+                var doc = document.getElementById("main");
+
+                doc.innerHTML +=
+                    `<div class="textiboi">
+                <a id="typElement"></a></div>
+                <div class="textiboi">
+                <button class="trigger" id="trigger" onclick="toggleModal()">about/tokenomics</button>
+                <a class="textiboi animated fadeIn"  href="https://etherscan.io/address/">contract</a>
+                <a class="textiboi animated fadeIn"  href="https://www.dextools.io/app/ether/pair-explorer/">dextools</a>
+                <a class="textiboi animated fadeIn"  href="https://app.uniswap.org/#/swap?outputCurrency=">uniswap</a>
+                <a class="textiboi animated fadeIn"  href="https://t.me/">telegram</a>
+                <a class="textiboi animated fadeIn"  href="https://twitter.com/">twitter</a>`;
+                console.log("running typewrite");
+                indefiniteWrite();
+
+            }, 150);
+
+        }
+
+        function indefiniteWrite() {
+            let strs = [
+                "“The key word in profiteering is profit.”",
+                "“I've been a jerk on the internet since the internet started.”",
+                "“There are some people who have a low tolerance for criticism. I'm not one of those people.”",
+                "“I did sleep on the floor of my office sometimes.“",
+                "“I didn't brush my teeth as often as I should have.“",
+                "“Who else is putting seven figures down for unreleased rap tracks?“",
+                "“My whole life has been one theme of self-sacrifice for my investors.“",
+                "“I don't mean to be presumptuous, but I liken myself to the robber barons.“",
+                "“Blame me for capitalism. Blame me for EpiPen.“",
+                "“Politics are well past logic. It's entertainment.“",
+
+            ];
+            var num = getRandomInt(strs.length);
+
+            console.log("writing " + strs[num]);
+
+            var typElement = document.getElementById('typElement');
+
+            var typewriter = new Typewriter(typElement, {
+                loop: true
+            });
+
+            typewriter.typeString(strs[num]).pauseFor(5000).deleteAll().pauseFor(100).callFunction(() => {
+                typewriter.stop();
+                indefiniteWrite();
+            }).start();
+        }
+    </script>
+    <script>
+        /* About Popup */
+        const modal = document.querySelector(".modal");
+        const trigger = document.querySelector(".trigger");
+        const closeButton = document.querySelector(".close-button");
+
+        function toggleModal() {
+            modal.classList.toggle("show-modal");
+        }
+
+        function windowOnClick(event) {
+            if (event.target === modal) {
+                toggleModal();
+            }
+        }
+
+        function closeClicked() {
+            console.log("Button clicked");
+        }
+
+        var span = document.getElementsByClassName("close-button")[0];
+        span.onclick = function() {
+            toggleModal();
+        }
+
+        trigger.addEventListener("click", toggleModal);
+        closeButton.addEventListener("click", closeClicked, true);
+        window.addEventListener("click", windowOnClick);
+    </script>
+
+
+</body>
+
+</html>
